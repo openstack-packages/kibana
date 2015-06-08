@@ -1,6 +1,6 @@
 Name:           kibana
 Version:        3.1.2 
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Browser-based analytics and search inteface for Elasticsearch
 
 License:        ASL 2.0
@@ -52,10 +52,13 @@ ln -s /etc/kibana/config.js %{buildroot}/%{_usr}/share/kibana/config.js
 %doc README.md LICENSE.md vendor/LICENSE.json
 
 %{_usr}/share/kibana/
-%config(noreplace) /etc/kibana/config.js
+%attr(0644, root, root) %config(noreplace) /etc/kibana/config.js
 
 
 
 %changelog
+* Fri Jun 05 2015 Graeme Gillies <ggillies@redhat.com> - 3.1.2-2
+- Changed permissions on /etc/kibana/config.js to be writable
+
 * Mon Apr 27 2015 Solly Ross <sross@redhat.com> - 3.1.2-1
 - Initial Packaging for Kibana 3
